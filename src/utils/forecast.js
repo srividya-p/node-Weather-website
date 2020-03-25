@@ -8,7 +8,7 @@ forecast = (lattitude, longitude, callback) => {
         } else if (body.error) {
             callback('Unable to find Location!', undefined)
         } else {
-            callback(undefined,body.daily.data[0].summary + " It is currently " + body.currently.temperature + " degrees out. There is " + body.currently.precipProbability + "% chance of rain.The humidity is currently "+body.currently.temperature+".\nThe highest recorded temperature for today is "+body.daily.data[0].temperatureHigh+" degrees.\nThe lowest recorded temperature for today is "+body.daily.data[0].temperatureLow+" degrees")
+            callback(undefined,body.daily.data[0].summary + " It is currently " + body.currently.temperature + " degrees out. There is " + body.currently.precipProbability + "% chance of rain.The humidity is currently "+body.currently.humidity+".\nThe highest recorded temperature for today is "+body.daily.data[0].temperatureHigh+" degrees.\nThe lowest recorded temperature for today is "+body.daily.data[0].temperatureLow+" degrees")
         }
     })
 }
