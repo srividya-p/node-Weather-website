@@ -8,6 +8,8 @@ const hbs = require('hbs')
 
 app = express() //express is just a function
 
+const port = process.env.PORT || 3000
+
 //define paths for expresses config
 publicDirPath = path.join(__dirname, '../public')
 viewsPath = path.join(__dirname, '../templates/views')
@@ -50,7 +52,7 @@ app.get('/weather', (req, res) => {
         })
     }
 
-    geocode(req.query.address, (error, { longitude, lattitude, location }={}) => {
+    geocode(req.query.address, (error, { longitude, lattitude, location } = {}) => {
         if (error) {
             return res.send({ error })
         }
@@ -83,6 +85,6 @@ app.get('*', (req, res) => {
     })
 })
 
-app.listen(3000, () => {
-    console.log('Server is up and running at port 3000...')
+app.listen(port, () => {
+    console.log('Server is up and running at port ' + port + '...')
 })
